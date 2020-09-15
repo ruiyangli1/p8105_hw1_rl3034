@@ -29,5 +29,19 @@ prob1_df =
   )
 ```
 
+Take the mean of each variable in my data frame.
+
+```{r}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_pos))
+mean(pull(prob1_df, vec_char))
+mean(pull(prob1_df, vec_factor))
+```
+
+Observations:
+
+* R computes the mean of the numerical variable `samp` to be `r round(mean(pull(prob1_df, samp)), digits = 2)`.
+* R computes the mean of the logical variable `samp_pos` to be `r round(mean(pull(prob1_df, samp_pos)), digits = 2)`.
+* However, R fails to compute the mean for the character variable `vec_char` and the factor variable `vec_factor`. 
 
 

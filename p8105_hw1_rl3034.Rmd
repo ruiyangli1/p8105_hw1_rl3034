@@ -31,7 +31,7 @@ prob1_df =
 
 Take the mean of each variable in my data frame.
 
-```{r}
+```{r take_mean}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_pos))
 mean(pull(prob1_df, vec_char))
@@ -45,3 +45,25 @@ Observations:
 * However, R fails to compute the mean for the character variable `vec_char` and the factor variable `vec_factor`. 
 
 
+Apply the `as.numeric` function to the logical, character, and factor variables.
+
+```{r convert_to_numeric, eval = FALSE}
+as.numeric(prob1_df$samp_pos)
+as.numeric(prob1_df$vec_char)
+as.numeric(prob1_df$vec_factor)
+```
+
+What happens in the above code chunk is that we can convert the logical variable and the factor variable to the numerical vector using the `as.numeric` function, but we fail to do so for the character variable. 
+
+The reason why this happens is that 
+
+* for the logical variable, the `as.numeric` function converts those with "FALSE" values to 0 and those with "TRUE" values to 1
+* for the factor variable, the `as.numeric` function converts each of the 3 levels to 1, 2, and 3
+* however, for the character variable, NAs are introduced by coercion by the `as.numeric` function
+
+This helps explain what happens when we try to take the mean: 
+
+* we know that we can only compute mean on numerical data
+* the mean of the numerical variable `samp` can be computed directly
+* the underlying way how R computes the mean of the logical variable is that it first converts the logical variable into the numerical variable and then uses the converted numerical variable to compute the mean 
+* as expected, R fails to compute the mean for character variables and factor variables

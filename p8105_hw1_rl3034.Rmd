@@ -83,3 +83,29 @@ as.factor(pull(prob1_df, samp_pos)) * pull(prob1_df, samp)
 as.numeric(as.factor(pull(prob1_df, samp_pos))) * pull(prob1_df, samp)
 ```
 
+
+
+## Problem 2
+
+Load the penguins dataset.
+
+```{r penguins_df}
+## load the penguins dataset
+data("penguins", package = "palmerpenguins")
+```
+
+Short description of the penguins dataset: 
+
+* There are `r ncol(penguins)` variables with `r nrow(penguins)` observations
+* Variables include: `r colnames(penguins)`
+  * There are `r length(levels(pull(penguins, species)))` penguin species: `r levels(pull(penguins, species))`
+  * There are `r length(levels(pull(penguins, island)))` islands: `r levels(pull(penguins, island))`
+  * Bill length is `r class(pull(penguins, bill_length_mm))`. It ranges from `r min(pull(penguins, bill_length_mm), na.rm = TRUE)` mm to `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` mm, with mean `r round(mean(pull(penguins, bill_length_mm), na.rm = TRUE), 2)` mm. It has `r sum(is.na(pull(penguins, bill_length_mm)))` missing values. 
+  * Bill depth is `r class(pull(penguins, bill_depth_mm))`. It ranges from `r min(pull(penguins, bill_depth_mm), na.rm = TRUE)` mm to `r max(pull(penguins, bill_depth_mm), na.rm = TRUE)` mm, with mean `r round(mean(pull(penguins, bill_depth_mm), na.rm = TRUE), 2)` mm. It has `r sum(is.na(pull(penguins, bill_depth_mm)))` missing values. 
+  * Flipper length is an `r class(pull(penguins, flipper_length_mm))`. It ranges from `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm to `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm, with mean `r round(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 2)`mm. It has `r sum(is.na(pull(penguins, flipper_length_mm)))` missing values. 
+  * Body mass is an `r class(pull(penguins, body_mass_g))`. It ranges from `r min(pull(penguins, body_mass_g), na.rm = TRUE)` g to `r max(pull(penguins, body_mass_g), na.rm = TRUE)` g, with mean `r round(mean(pull(penguins, body_mass_g), na.rm = TRUE), 2)`g. It has `r sum(is.na(pull(penguins, body_mass_g)))` missing values. 
+  * Sex consists of `r levels(pull(penguins, sex))`. It has `r sum(is.na(pull(penguins, sex)))` missing values. 
+  * Year is an `r class(pull(penguins, year))`. It ranges from `r min(pull(penguins, year))` to `r max(pull(penguins, year))`, with median at `r median(pull(penguins, year))`. 
+
+
+

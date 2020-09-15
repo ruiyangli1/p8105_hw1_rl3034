@@ -1,8 +1,33 @@
 ---
 title: "P8105 HW1"
 author: "Ruiyang Li"
-date: "9/21/2020"
 output: github_document
 ---
 
 This is my solution to HW1. 
+
+```{r setup}
+library(tidyverse)
+```
+
+
+# Problem 1
+
+Create a data frame with the specified elements. 
+
+```{r create_df}
+## set seed to ensure reproducibility
+set.seed(20200919)
+
+## create data frame
+prob1_df = 
+  tibble(
+    samp = rnorm(10),
+    samp_pos = samp > 0,
+    vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+    vec_factor = factor(c("low", "low", "low", "mod", "mod", "mod", "high", "high", "high", "high"))
+  )
+```
+
+
+

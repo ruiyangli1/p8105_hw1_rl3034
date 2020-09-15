@@ -1,0 +1,8 @@
+---
+title: "P8105 HW1"
+author: "Ruiyang Li"
+date: "9/21/2020"
+output: github_document
+---
+
+This is my solution to HW1. 

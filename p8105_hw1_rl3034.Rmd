@@ -11,7 +11,7 @@ library(tidyverse)
 ```
 
 
-# Problem 1
+## Problem 1
 
 Create a data frame with the specified elements. 
 

@@ -108,4 +108,14 @@ Short description of the penguins dataset:
   * Year is an `r class(pull(penguins, year))`. It ranges from `r min(pull(penguins, year))` to `r max(pull(penguins, year))`, with median at `r median(pull(penguins, year))`. 
 
 
+Make a scatter plot of flipper_length_mm (y) vs bill_length_mm (x) and export it.
+
+```{r plot_export}
+## scatter plot of flipper_length_mm (y) vs bill_length_mm (x) & color by species
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+## export the scatter plot 
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
 
